@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -81,15 +81,21 @@ namespace BlooCoin_Miner
 
         private void SubmitFind(string hashish, string str)
         {
-            string msg = String.Format("{\"cmd\":\"check\" \",\"winning_string\":\"{0}\",\"winning_hash\":\"{1}\",\"addr\":\"{2}\"}", str, hashish, BLCAddr);
-            TcpClient tcp = new TcpClient();
-            tcp.Connect(_Ip, _Port);
-            StreamWriter sw = new StreamWriter(tcp.GetStream());
-            sw.WriteLine(msg);
-            sw.Flush();
-            sw.Close();
-            tcp.Close();
-            _Log("Coins Sent!");
+            try
+            {
+                string msg = String.Format("{\"cmd\":\"check\" \",\"winning_string\":\"{0}\",\"winning_hash\":\"{1}\",\"addr\":\"{2}\"}", str, hashish, BLCAddr);
+                TcpClient tcp = new TcpClient();
+                tcp.Connect(_Ip, _Port);
+                StreamWriter sw = new StreamWriter(tcp.GetStream());
+                sw.WriteLine(msg);
+                sw.Flush();
+                sw.Close();
+                tcp.Close();
+                _Log("Coins Sent!");
+            }
+            catch{
+                MessageBox.Show("Server is down please wait until it is back upagain!", "Server is down", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void SpeedCalc()

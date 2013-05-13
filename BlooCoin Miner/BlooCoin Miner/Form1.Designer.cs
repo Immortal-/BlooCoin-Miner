@@ -38,11 +38,11 @@
             this.beginminer = new System.Windows.Forms.Button();
             this.endminer = new System.Windows.Forms.Button();
             this.settingsbox = new System.Windows.Forms.GroupBox();
+            this.tamt = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.thamt = new System.Windows.Forms.TrackBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.set1 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tamt = new System.Windows.Forms.Label();
             this.infobox.SuspendLayout();
             this.settingsbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.thamt)).BeginInit();
@@ -77,7 +77,7 @@
             this.threads.Name = "threads";
             this.threads.Size = new System.Drawing.Size(58, 13);
             this.threads.TabIndex = 2;
-            this.threads.Text = "Threads: 0";
+            this.threads.Text = "Threads: 1";
             // 
             // coins
             // 
@@ -148,6 +148,24 @@
             this.settingsbox.TabStop = false;
             this.settingsbox.Text = "Settings";
             // 
+            // tamt
+            // 
+            this.tamt.AutoSize = true;
+            this.tamt.Location = new System.Drawing.Point(6, 99);
+            this.tamt.Name = "tamt";
+            this.tamt.Size = new System.Drawing.Size(13, 13);
+            this.tamt.TabIndex = 4;
+            this.tamt.Text = "1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "How many threads?";
+            // 
             // thamt
             // 
             this.thamt.Location = new System.Drawing.Point(29, 65);
@@ -175,24 +193,6 @@
             this.set1.Size = new System.Drawing.Size(123, 13);
             this.set1.TabIndex = 0;
             this.set1.Text = "Your BlooCoing address:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "How many threads?";
-            // 
-            // tamt
-            // 
-            this.tamt.AutoSize = true;
-            this.tamt.Location = new System.Drawing.Point(6, 99);
-            this.tamt.Name = "tamt";
-            this.tamt.Size = new System.Drawing.Size(13, 13);
-            this.tamt.TabIndex = 4;
-            this.tamt.Text = "0";
             // 
             // Miner
             // 

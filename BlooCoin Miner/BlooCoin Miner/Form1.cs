@@ -113,10 +113,9 @@ namespace BlooCoin_Miner
             logScreen.Text += "[Miner] " + DateTime.Now.ToShortTimeString() + " | " + myDate + " | " + message + Environment.NewLine;
         }
        
-        private void _Miner(bool isRunning)
+        private void _Miner()
         {
-            while (isRunning)
-            {
+            
                 Calc = new Thread(new ThreadStart(SpeedCalc));
                 Calc.Start();
                 MineThr = new Thread[MinerThreads];
@@ -129,9 +128,11 @@ namespace BlooCoin_Miner
                         MineThr[i] = new Thread(new ThreadStart(MineMethod));
                         MineThr[i].Start();
                     }
-                    catch { }
+                    catch(ThreadInterruptedException ex) {
+                        MineThr[i].Abort();
+
+                    }
                 }
-            }
         }
 
         private void beginminer_Click(object sender, EventArgs e)
@@ -143,7 +144,7 @@ namespace BlooCoin_Miner
             else
             {
                 status.Text = "Status: Mining!";
-                _Miner(true);
+                _Miner();
                 beginminer.Enabled = false;
                 endminer.Enabled = true;
             }
@@ -151,8 +152,12 @@ namespace BlooCoin_Miner
 
         private void endminer_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < MinerThreads; i++)
+            {
+                MineThr[i].Abort();
+            }
+            _Log("Miner Stoped!");
             status.Text = "Status: waiting!";
-            _Miner(false);
             beginminer.Enabled = true;
             endminer.Enabled = false;
         }

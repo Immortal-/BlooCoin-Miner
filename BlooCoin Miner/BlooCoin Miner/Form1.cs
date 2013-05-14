@@ -17,7 +17,7 @@ namespace BlooCoin_Miner
         public static int _Port = 3122;
         public static string _Ip = "server.bloocoin.org";
         public static  int MinerThreads;
-        public static int diff = 7;
+        public static int diff = 8;
         public static string BLCAddr;
         public static long hashcount = 0;
         private int coinsfound = 0;
